@@ -14,7 +14,9 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/Screenshot.tsx_Screenshot",
         "codeComponentProps" : {
-          "device" : "iphone-6-5-inch"
+          "device" : "iphone-5-8-inch",
+          "screenshot" : "design\/assets\/iPhone 1.PNG",
+          "slogan" : "Create awesome stickers"
         },
         "codeOverrideEnabled" : false,
         "constraintsLocked" : false,
