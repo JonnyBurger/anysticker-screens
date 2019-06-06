@@ -3,8 +3,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@types/react": "^16.8",
-		"@types/styled-components": "^4.1.15",
-		"framer": "^1.0.8"
+		"@types/styled-components": "^4.1.15"
 	},
 	"peerDependencies": {
 		"framer": "^1.0",

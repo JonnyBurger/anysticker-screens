@@ -13,9 +13,16 @@ const Container = styled.div`
 const Title = styled.div`
 	font-family: 'IBM Plex Sans';
 	color: white;
-	font-size: 2.2em;
+	font-size: 50px;
 	font-weight: bold;
-	text-align: center;
+	margin-left: 18px;
+`;
+
+const Subtitle = styled.div`
+	font-family: 'IBM Plex Sans';
+	color: white;
+	font-size: 26px;
+	margin-left: 18px;
 `;
 
 type Device = 'iphone-5-8-inch' | 'iphone-6-5-inch' | 'android';
@@ -24,6 +31,7 @@ type Props = {
 	device: Device;
 	screenshot: string;
 	slogan: string;
+	subtitle: string;
 };
 
 const getStyle = (device: Device): React.CSSProperties => {
@@ -37,29 +45,29 @@ const getStyle = (device: Device): React.CSSProperties => {
 	}
 	if (device === 'iphone-6-5-inch') {
 		return {
-			width: 435,
+			width: 400,
 			position: 'absolute',
-			left: -43,
-			top: -57
+			left: -38,
+			top: -52
 		};
 	}
 	return {
-		width: 410,
+		width: 380,
 		position: 'absolute',
 		left: -29,
-		top: -77
+		top: -73
 	};
 };
 
 const getScreenWidth = (device: Device): React.CSSProperties => {
 	if (device === 'iphone-6-5-inch') {
 		return {
-			width: 350
+			width: 325
 		};
 	}
 	if (device === 'android') {
 		return {
-			width: 350
+			width: 320
 		};
 	}
 	return {
@@ -89,14 +97,16 @@ export function Screenshot(props: Props) {
 		<Container
 			style={{
 				width: 414,
-				height
+				height,
+				overflow: 'hidden'
 			}}
 		>
-			<div style={{marginTop: 50}}>
+			<div style={{marginTop: 30}}>
 				<Title>{props.slogan}</Title>
-				{props.device === 'android' ? <div style={{marginTop: -10}} /> : null}
+				<Subtitle>{props.subtitle}</Subtitle>
+				{props.device === 'android' ? <div style={{marginTop: -25}} /> : null}
 				{props.device === 'iphone-6-5-inch' ? (
-					<div style={{marginTop: -50}} />
+					<div style={{marginTop: -65}} />
 				) : null}
 				<Frame screen={props.screenshot} device={props.device} />
 			</div>
@@ -120,14 +130,20 @@ addPropertyControls(Screenshot, {
 	slogan: {
 		type: ControlType.String,
 		title: 'Slogan',
-		defaultValue: 'Create awesome stickers'
+		defaultValue: 'Create'
+	},
+	subtitle: {
+		type: ControlType.String,
+		title: 'Subtitle',
+		defaultValue: 'awesome stickers'
 	}
 });
 
 const defaultProps: Props = {
 	device: 'iphone-5-8-inch',
 	screenshot: url('./code/screens/iPhone 1.PNG'),
-	slogan: 'Create awesome stickers'
+	slogan: 'Create',
+	subtitle: 'awesome stickers'
 };
 
 Screenshot.defaultProps = defaultProps;
